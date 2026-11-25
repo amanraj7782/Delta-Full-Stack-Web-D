@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Users</title>
+    <style>
+        /* tr,th,td {
+            border:2px solid black ;
+        } */
+         table {
+                 border-collapse: collapse;
+                 width: 100%; /* Optional: makes the table stretch to the edges */
+               }
+
+        th, td {
+                border: 1px solid black; /* Creates a single, clean black line */
+                padding: 8px;            /* Adds breathing room between the text and the line */
+                text-align: left;        /* Aligns the text to the left */
+               }
+    </style>
+</head>
+<body>
+       <table>
+          <tr>
+            <th>Id</th>
+            <th>Email</th>
+            <th> User Name</th>
+          </tr>
+
+           <%   for(user of users){   %> 
+             <tr>
+                <td> <%= user.id  %>  </td>
+                <td> <%= user.email %>   </td>
+                <td>  <%= user.username  %>   </td>
+                <td>
+                     <form method="GET" action="/user/<%=user.id%>/edit">
+                        <button >
+                            Edit Post
+                        </button>
+                     </form>
+                </td>
+               
+             </tr>
+                           <%    }  %>
+       </table>
+</body>
+</html>
+
+
